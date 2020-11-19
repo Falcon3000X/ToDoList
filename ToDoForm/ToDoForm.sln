@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29920.165
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ToDoForm", "ToDoForm\ToDoForm.csproj", "{E3BBBF2E-4E6A-4B40-B10E-956711F33F2B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Task", "Task\Task.csproj", "{EFD64043-B935-40C6-BDFD-75DBB8554861}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{E3BBBF2E-4E6A-4B40-B10E-956711F33F2B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E3BBBF2E-4E6A-4B40-B10E-956711F33F2B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E3BBBF2E-4E6A-4B40-B10E-956711F33F2B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E3BBBF2E-4E6A-4B40-B10E-956711F33F2B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EFD64043-B935-40C6-BDFD-75DBB8554861}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EFD64043-B935-40C6-BDFD-75DBB8554861}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EFD64043-B935-40C6-BDFD-75DBB8554861}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EFD64043-B935-40C6-BDFD-75DBB8554861}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {ABF01714-4D37-45FB-AACD-09F003945AD0}
+	EndGlobalSection
+EndGlobal
