@@ -7,7 +7,7 @@ using System.Xml;
 
 namespace TaskProject
 {
-    public class Task
+    public class TaskClass
     {
         public string Title { get; set; }
         public string Description { get; set; }

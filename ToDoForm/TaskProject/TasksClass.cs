@@ -6,18 +6,18 @@ using System.Threading.Tasks;
 
 namespace TaskProject
 {
-    class Tasks
+    class TasksClass
     {
-        public List<Task> tasks = new List<Task>();
+        public List<TaskClass> tasks = new List<TaskClass>();
 
-        public void AddTask(Task task)
+        public void AddTask(TaskClass task)
         {
             if (task != null)
                 tasks.Add(task);
             else throw new Exception("Task was null!");
         }
 
-        public void RemoveTask(Task task)
+        public void RemoveTask(TaskClass task)
         {
             if (task != null)
                 tasks.Remove(task);
