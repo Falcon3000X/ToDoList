@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.buttonAdd = new System.Windows.Forms.Button();
+            this.buttonClear = new System.Windows.Forms.Button();
             this.buttonRemove = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.textBoxTitle = new System.Windows.Forms.TextBox();
@@ -43,17 +43,17 @@
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
-            // buttonAdd
+            // buttonClear
             // 
-            this.buttonAdd.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.buttonAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonAdd.Location = new System.Drawing.Point(163, 130);
-            this.buttonAdd.Name = "buttonAdd";
-            this.buttonAdd.Size = new System.Drawing.Size(75, 23);
-            this.buttonAdd.TabIndex = 1;
-            this.buttonAdd.Text = "Add task";
-            this.buttonAdd.UseVisualStyleBackColor = false;
-            this.buttonAdd.Click += new System.EventHandler(this.buttonAdd_Click);
+            this.buttonClear.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.buttonClear.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonClear.Location = new System.Drawing.Point(163, 130);
+            this.buttonClear.Name = "buttonClear";
+            this.buttonClear.Size = new System.Drawing.Size(75, 23);
+            this.buttonClear.TabIndex = 1;
+            this.buttonClear.Text = "Clear all";
+            this.buttonClear.UseVisualStyleBackColor = false;
+            this.buttonClear.Click += new System.EventHandler(this.buttonAdd_Click);
             // 
             // buttonRemove
             // 
@@ -72,7 +72,7 @@
             this.groupBox1.Controls.Add(this.checkBoxDone);
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.textBoxDeadLine);
-            this.groupBox1.Controls.Add(this.buttonAdd);
+            this.groupBox1.Controls.Add(this.buttonClear);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.textBoxDescriprion);
             this.groupBox1.Controls.Add(this.label1);
@@ -142,6 +142,7 @@
             this.checkBoxDone.TabIndex = 6;
             this.checkBoxDone.Text = "Done";
             this.checkBoxDone.UseVisualStyleBackColor = true;
+            this.checkBoxDone.CheckedChanged += new System.EventHandler(this.checkBoxDone_CheckedChanged);
             // 
             // listBox1
             // 
@@ -161,7 +162,7 @@
             this.buttonSave.Name = "buttonSave";
             this.buttonSave.Size = new System.Drawing.Size(75, 23);
             this.buttonSave.TabIndex = 7;
-            this.buttonSave.Text = "Save";
+            this.buttonSave.Text = "Add";
             this.buttonSave.UseVisualStyleBackColor = false;
             this.buttonSave.Click += new System.EventHandler(this.buttonSave_Click);
             // 
@@ -184,7 +185,7 @@
         }
 
         #endregion
-        private System.Windows.Forms.Button buttonAdd;
+        private System.Windows.Forms.Button buttonClear;
         private System.Windows.Forms.Button buttonRemove;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.CheckBox checkBoxDone;

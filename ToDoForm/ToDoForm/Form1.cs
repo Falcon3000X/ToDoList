@@ -33,7 +33,7 @@ namespace ToDoForm
             ShowListAgain();
         }
 
-        private void buttonAdd_Click(object sender, EventArgs e)
+        private void buttonAdd_Click(object sender, EventArgs e)//button Clear()
         {
             textBoxTitle.Text = "";
             textBoxDescriprion.Text = "";
@@ -119,6 +119,24 @@ namespace ToDoForm
             taskClass.Writer(@"Tasks.xml");
             Tasks.AddTask(taskClass);
             ShowListAgain();
+        }
+
+        private void checkBoxDone_CheckedChanged(object sender, EventArgs e)
+        {
+            var res = listBox1.SelectedItem as TaskClass;
+
+
+            Tasks.RemoveTask(res);
+            ShowListAgain();
+
+            doc.Element("Tasks").Elements("Task").Where(x => x.Element("Title").Value == textBoxTitle.Text).Remove();
+            doc.Save(@"Tasks.xml");
+
+            textBoxTitle.Text = "";
+            textBoxDescriprion.Text = "";
+            textBoxDeadLine.Text = "";
+            checkBoxDone.Checked = false;
+
         }
     }
 }
