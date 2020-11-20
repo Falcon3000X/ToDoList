@@ -18,35 +18,37 @@ namespace TaskProject
         {
             while (reader.Read())
             {
-                if (reader.NodeType == XmlNodeType.Element)
-                {
-                    switch (reader.Name)
+
+                    if (reader.NodeType == XmlNodeType.Element)
                     {
-                        case "Title":
-                            reader.Read();
-                            this.Title = reader.Value;
-                            break;
 
-                        case "Description":
-                            reader.Read();
-                            this.Description = reader.Value;
-                            break;
+                        switch (reader.Name)
+                        {
+                            case "Title":
+                                reader.Read();
+                                this.Title = reader.Value;
+                                break;
 
-                        case "Deadline":
-                            reader.Read();
-                            this.Description = reader.Value;
-                            break;
+                            case "Description":
+                                reader.Read();
+                                this.Description = reader.Value;
+                                break;
 
-                        case "IsDone":
-                            reader.Read();
-                            this.IsDone = bool.Parse(reader.Value);
-                            break;
+                            case "Deadline":
+                                reader.Read();
+                                this.Description = reader.Value;
+                                break;
 
-                        default:
-                            break;
+                            case "IsDone":
+                                reader.Read();
+                                this.IsDone = bool.Parse(reader.Value);
+                                break;
+
+                            default:
+                                break;
+                        }
                     }
-
-                }
+                
             }
         }
 
@@ -87,6 +89,9 @@ namespace TaskProject
             doc.Save(path);
         }
 
-
+        public override string ToString()
+        {
+            return $"{Title}";
+        }
     }
 }
