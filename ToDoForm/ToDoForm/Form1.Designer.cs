@@ -39,6 +39,7 @@
             this.textBoxDeadLine = new System.Windows.Forms.TextBox();
             this.checkBoxDone = new System.Windows.Forms.CheckBox();
             this.listBox1 = new System.Windows.Forms.ListBox();
+            this.buttonSave = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -46,7 +47,7 @@
             // 
             this.buttonAdd.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.buttonAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonAdd.Location = new System.Drawing.Point(320, 175);
+            this.buttonAdd.Location = new System.Drawing.Point(163, 130);
             this.buttonAdd.Name = "buttonAdd";
             this.buttonAdd.Size = new System.Drawing.Size(75, 23);
             this.buttonAdd.TabIndex = 1;
@@ -71,6 +72,7 @@
             this.groupBox1.Controls.Add(this.checkBoxDone);
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.textBoxDeadLine);
+            this.groupBox1.Controls.Add(this.buttonAdd);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.textBoxDescriprion);
             this.groupBox1.Controls.Add(this.label1);
@@ -134,7 +136,7 @@
             // checkBoxDone
             // 
             this.checkBoxDone.AutoSize = true;
-            this.checkBoxDone.Location = new System.Drawing.Point(186, 120);
+            this.checkBoxDone.Location = new System.Drawing.Point(62, 134);
             this.checkBoxDone.Name = "checkBoxDone";
             this.checkBoxDone.Size = new System.Drawing.Size(52, 17);
             this.checkBoxDone.TabIndex = 6;
@@ -151,16 +153,28 @@
             this.listBox1.TabIndex = 4;
             this.listBox1.SelectedIndexChanged += new System.EventHandler(this.listBox1_SelectedIndexChanged);
             // 
+            // buttonSave
+            // 
+            this.buttonSave.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.buttonSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonSave.Location = new System.Drawing.Point(314, 175);
+            this.buttonSave.Name = "buttonSave";
+            this.buttonSave.Size = new System.Drawing.Size(75, 23);
+            this.buttonSave.TabIndex = 7;
+            this.buttonSave.Text = "Save";
+            this.buttonSave.UseVisualStyleBackColor = false;
+            this.buttonSave.Click += new System.EventHandler(this.buttonSave_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.ClientSize = new System.Drawing.Size(407, 246);
+            this.Controls.Add(this.buttonSave);
             this.Controls.Add(this.listBox1);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.buttonRemove);
-            this.Controls.Add(this.buttonAdd);
             this.Name = "Form1";
             this.Text = "Form1";
             this.groupBox1.ResumeLayout(false);
@@ -181,6 +195,7 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox textBoxTitle;
         private System.Windows.Forms.ListBox listBox1;
+        private System.Windows.Forms.Button buttonSave;
     }
 }
 
