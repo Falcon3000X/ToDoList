@@ -25,16 +25,12 @@ namespace ToDoForm
         {
             InitializeComponent();
 
-            //Tasks.AddTask(new TaskClass { Title = "Buy cat", Description = "Bue new cat", Deadline = DateTime.Now, IsDone = false });
-            //Tasks.AddTask(new TaskClass { Title = "Buy food for new cat", Description = "Buy new food", Deadline = DateTime.Now, IsDone = false });
-            //Tasks.AddTask(new TaskClass { Title = "Sell cat", Description = "And sell new food", Deadline = DateTime.Now, IsDone = false });
-            //Tasks.Writer();
-
+            // Початкове зчитування даних з xml
             ReadAllToTasks(@"DoneTasks.xml", DoneTasks);
             ShowListAgain(listBox2, DoneTasks);
 
 
-            ReadAllToTasks(@"Tasks.xml", Tasks); // Зчитування даних з xml
+            ReadAllToTasks(@"Tasks.xml", Tasks); 
             ShowListAgain(listBox1, Tasks);
         }
 
@@ -155,7 +151,7 @@ namespace ToDoForm
         }
 
         /// <summary>
-        /// Відмітка задачі як зробленої, видалення її зі списку та файлу.
+        /// Відмітка задачі як зробленої, видалення її зі списку та файлу. Записує у файл зі зробленими задчами
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -163,39 +159,6 @@ namespace ToDoForm
         {
             try
             {
-                //var res = listBox1.SelectedItem as TaskClass;
-
-
-
-                //Tasks.RemoveTask(res);
-                //res.Writer(@"DoneTasks.xml"); // Запис у файл з готовими тасками
-
-                //doc.Element("Tasks").Elements("Task").Where(x => x.Element("Title").Value == textBoxTitle.Text).Remove();
-                //doc.Save(@"Tasks.xml");
-
-
-                //textBoxTitle.Text = "";
-                //textBoxDescriprion.Text = "";
-                //textBoxDeadLine.Text = "";
-                //checkBoxDone.Checked = false;
-
-
-
-                ////listBox1.Items.Clear();
-                // listBox2.Items.Clear();
-                ////DoneTasks.tasks.Clear();
-                ////Tasks.tasks.Clear();
-
-
-                //ReadAllToTasks(@"DoneTasks.xml", DoneTasks); // Запис з xml файлу до ліста тасків
-                //ShowListAgain(listBox2, DoneTasks); // Вивід всіх даних у лістБокс з тасків
-
-                //ReadAllToTasks(@"Tasks.xml", Tasks); // Зчитування даних з xml до файлу до ліста тасків
-                //ShowListAgain(listBox1, Tasks);// Вивід всіх даних у лістБокс з тасків
-
-
-
-
                 var res = listBox1.SelectedItem as TaskClass;
 
                 res.Writer(@"DoneTasks.xml");
