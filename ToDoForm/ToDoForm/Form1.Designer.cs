@@ -31,15 +31,17 @@
             this.buttonClear = new System.Windows.Forms.Button();
             this.buttonRemove = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.textBoxTitle = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.textBoxDescriprion = new System.Windows.Forms.TextBox();
+            this.checkBoxDone = new System.Windows.Forms.CheckBox();
             this.label3 = new System.Windows.Forms.Label();
             this.textBoxDeadLine = new System.Windows.Forms.TextBox();
-            this.checkBoxDone = new System.Windows.Forms.CheckBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.textBoxDescriprion = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.textBoxTitle = new System.Windows.Forms.TextBox();
             this.listBox1 = new System.Windows.Forms.ListBox();
             this.buttonSave = new System.Windows.Forms.Button();
+            this.listBox2 = new System.Windows.Forms.ListBox();
+            this.label4 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -84,21 +86,32 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Task";
             // 
-            // textBoxTitle
+            // checkBoxDone
             // 
-            this.textBoxTitle.Location = new System.Drawing.Point(43, 17);
-            this.textBoxTitle.Name = "textBoxTitle";
-            this.textBoxTitle.Size = new System.Drawing.Size(195, 20);
-            this.textBoxTitle.TabIndex = 0;
+            this.checkBoxDone.AutoSize = true;
+            this.checkBoxDone.Location = new System.Drawing.Point(62, 134);
+            this.checkBoxDone.Name = "checkBoxDone";
+            this.checkBoxDone.Size = new System.Drawing.Size(52, 17);
+            this.checkBoxDone.TabIndex = 6;
+            this.checkBoxDone.Text = "Done";
+            this.checkBoxDone.UseVisualStyleBackColor = true;
+            this.checkBoxDone.CheckedChanged += new System.EventHandler(this.checkBoxDone_CheckedChanged);
             // 
-            // label1
+            // label3
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(7, 20);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(30, 13);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "Title:";
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(7, 97);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(49, 13);
+            this.label3.TabIndex = 5;
+            this.label3.Text = "Deadline";
+            // 
+            // textBoxDeadLine
+            // 
+            this.textBoxDeadLine.Location = new System.Drawing.Point(62, 94);
+            this.textBoxDeadLine.Name = "textBoxDeadLine";
+            this.textBoxDeadLine.Size = new System.Drawing.Size(176, 20);
+            this.textBoxDeadLine.TabIndex = 4;
             // 
             // label2
             // 
@@ -117,32 +130,21 @@
             this.textBoxDescriprion.Size = new System.Drawing.Size(163, 38);
             this.textBoxDescriprion.TabIndex = 2;
             // 
-            // label3
+            // label1
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(7, 97);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(49, 13);
-            this.label3.TabIndex = 5;
-            this.label3.Text = "Deadline";
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(7, 20);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(30, 13);
+            this.label1.TabIndex = 1;
+            this.label1.Text = "Title:";
             // 
-            // textBoxDeadLine
+            // textBoxTitle
             // 
-            this.textBoxDeadLine.Location = new System.Drawing.Point(62, 94);
-            this.textBoxDeadLine.Name = "textBoxDeadLine";
-            this.textBoxDeadLine.Size = new System.Drawing.Size(176, 20);
-            this.textBoxDeadLine.TabIndex = 4;
-            // 
-            // checkBoxDone
-            // 
-            this.checkBoxDone.AutoSize = true;
-            this.checkBoxDone.Location = new System.Drawing.Point(62, 134);
-            this.checkBoxDone.Name = "checkBoxDone";
-            this.checkBoxDone.Size = new System.Drawing.Size(52, 17);
-            this.checkBoxDone.TabIndex = 6;
-            this.checkBoxDone.Text = "Done";
-            this.checkBoxDone.UseVisualStyleBackColor = true;
-            this.checkBoxDone.CheckedChanged += new System.EventHandler(this.checkBoxDone_CheckedChanged);
+            this.textBoxTitle.Location = new System.Drawing.Point(43, 17);
+            this.textBoxTitle.Name = "textBoxTitle";
+            this.textBoxTitle.Size = new System.Drawing.Size(195, 20);
+            this.textBoxTitle.TabIndex = 0;
             // 
             // listBox1
             // 
@@ -166,12 +168,32 @@
             this.buttonSave.UseVisualStyleBackColor = false;
             this.buttonSave.Click += new System.EventHandler(this.buttonSave_Click);
             // 
+            // listBox2
+            // 
+            this.listBox2.BackColor = System.Drawing.SystemColors.Info;
+            this.listBox2.FormattingEnabled = true;
+            this.listBox2.Location = new System.Drawing.Point(417, 25);
+            this.listBox2.Name = "listBox2";
+            this.listBox2.Size = new System.Drawing.Size(120, 212);
+            this.listBox2.TabIndex = 8;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(414, 9);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(36, 13);
+            this.label4.TabIndex = 9;
+            this.label4.Text = "Done:";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.ClientSize = new System.Drawing.Size(407, 246);
+            this.ClientSize = new System.Drawing.Size(545, 246);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.listBox2);
             this.Controls.Add(this.buttonSave);
             this.Controls.Add(this.listBox1);
             this.Controls.Add(this.groupBox1);
@@ -181,6 +203,7 @@
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -197,6 +220,8 @@
         private System.Windows.Forms.TextBox textBoxTitle;
         private System.Windows.Forms.ListBox listBox1;
         private System.Windows.Forms.Button buttonSave;
+        private System.Windows.Forms.ListBox listBox2;
+        private System.Windows.Forms.Label label4;
     }
 }
 

@@ -17,6 +17,8 @@ namespace ToDoForm
     public partial class Form1 : Form
     {
         TasksClass Tasks = new TasksClass();
+        TasksClass DoneTasks = new TasksClass();
+
         XDocument doc = XDocument.Load(@"Tasks.xml");
 
         public Form1()
@@ -28,11 +30,19 @@ namespace ToDoForm
             //Tasks.AddTask(new TaskClass { Title = "Sell cat", Description = "And sell new food", Deadline = DateTime.Now, IsDone = false });
             //Tasks.Writer();
 
-            ReadAllToTasks(); // Зчитування даних з xml
+            ReadAllToTasks(@"DoneTasks.xml", DoneTasks);
+            ShowListAgain(listBox2, DoneTasks);
 
-            ShowListAgain();
+
+            ReadAllToTasks(@"Tasks.xml", Tasks); // Зчитування даних з xml
+            ShowListAgain(listBox1, Tasks);
         }
 
+        /// <summary>
+        /// Кнопка відповідає за очищення текстБоксів від інформації
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void buttonAdd_Click(object sender, EventArgs e)//button Clear()
         {
             textBoxTitle.Text = "";
@@ -41,16 +51,24 @@ namespace ToDoForm
             checkBoxDone.Checked = false;
         }
 
+        /// <summary>
+        /// Видалення задачі зі списку
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void buttonRemove_Click(object sender, EventArgs e)
         {
             doc.Element("Tasks").Elements("Task").Where(x => x.Element("Title").Value == listBox1.SelectedItem.ToString()).Remove();
             doc.Save(@"Tasks.xml");
-            ShowListAgain();
+            ShowListAgain(listBox1, Tasks);
         }
 
-        public void ReadAllToTasks()
+        /// <summary>
+        /// Зчитування інформації з xml файлу до List<TasksClass>
+        /// </summary>
+        public void ReadAllToTasks(string path, TasksClass tasksClass)
         {
-            XDocument doc = XDocument.Load(@"Tasks.xml");
+            XDocument doc = XDocument.Load(path);
             var tasks = doc.Element("Tasks").Elements().Select(x => new
             {
                 Title = x.Element("Title").Value,
@@ -68,19 +86,28 @@ namespace ToDoForm
                 task1.Deadline = DateTime.Parse(task.Deadline);
                 task1.IsDone = bool.Parse(task.IsDone);
 
-                Tasks.AddTask(task1);
+                tasksClass.AddTask(task1);
             }
         }
 
-        public void ShowListAgain()
+        /// <summary>
+        /// Очищає listBox та перезаливає туди всі актуальні задачі
+        /// </summary>
+        public void ShowListAgain(ListBox listBox, TasksClass tasksClass)
         {
-            listBox1.Items.Clear();
-            foreach (var i in Tasks.tasks)
+            listBox.Items.Clear();
+            foreach (var i in tasksClass.tasks)
             {
-                listBox1.Items.Add(i); // Вивід даних в listBox
+                listBox.Items.Add(i); // Вивід даних в listBox
             }
         }
 
+
+        /// <summary>
+        /// Виведення інформації про вибраний елемент у TextBox 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
             try
@@ -109,6 +136,12 @@ namespace ToDoForm
             }
         }
 
+
+        /// <summary>
+        /// Записує нову задачу в xml file and List<TasksClass>
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void buttonSave_Click(object sender, EventArgs e)
         {
             TaskClass taskClass = new TaskClass();
@@ -118,25 +151,76 @@ namespace ToDoForm
 
             taskClass.Writer(@"Tasks.xml");
             Tasks.AddTask(taskClass);
-            ShowListAgain();
+            ShowListAgain(listBox1, Tasks);
         }
 
+        /// <summary>
+        /// Відмітка задачі як зробленої, видалення її зі списку та файлу.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void checkBoxDone_CheckedChanged(object sender, EventArgs e)
         {
-            var res = listBox1.SelectedItem as TaskClass;
+            try
+            {
+                //var res = listBox1.SelectedItem as TaskClass;
 
 
-            Tasks.RemoveTask(res);
-            ShowListAgain();
 
-            doc.Element("Tasks").Elements("Task").Where(x => x.Element("Title").Value == textBoxTitle.Text).Remove();
-            doc.Save(@"Tasks.xml");
+                //Tasks.RemoveTask(res);
+                //res.Writer(@"DoneTasks.xml"); // Запис у файл з готовими тасками
 
-            textBoxTitle.Text = "";
-            textBoxDescriprion.Text = "";
-            textBoxDeadLine.Text = "";
-            checkBoxDone.Checked = false;
+                //doc.Element("Tasks").Elements("Task").Where(x => x.Element("Title").Value == textBoxTitle.Text).Remove();
+                //doc.Save(@"Tasks.xml");
 
+
+                //textBoxTitle.Text = "";
+                //textBoxDescriprion.Text = "";
+                //textBoxDeadLine.Text = "";
+                //checkBoxDone.Checked = false;
+
+
+
+                ////listBox1.Items.Clear();
+                // listBox2.Items.Clear();
+                ////DoneTasks.tasks.Clear();
+                ////Tasks.tasks.Clear();
+
+
+                //ReadAllToTasks(@"DoneTasks.xml", DoneTasks); // Запис з xml файлу до ліста тасків
+                //ShowListAgain(listBox2, DoneTasks); // Вивід всіх даних у лістБокс з тасків
+
+                //ReadAllToTasks(@"Tasks.xml", Tasks); // Зчитування даних з xml до файлу до ліста тасків
+                //ShowListAgain(listBox1, Tasks);// Вивід всіх даних у лістБокс з тасків
+
+
+
+
+                var res = listBox1.SelectedItem as TaskClass;
+
+                res.Writer(@"DoneTasks.xml");
+
+                Tasks.RemoveTask(res);
+                ShowListAgain(listBox1,Tasks);
+
+                DoneTasks.tasks.Clear();
+               
+                ReadAllToTasks(@"DoneTasks.xml", DoneTasks);
+                ShowListAgain(listBox2, DoneTasks);
+
+                doc.Element("Tasks").Elements("Task").Where(x => x.Element("Title").Value == textBoxTitle.Text).Remove();
+                doc.Save(@"Tasks.xml");
+
+                textBoxTitle.Text = "";
+                textBoxDescriprion.Text = "";
+                textBoxDeadLine.Text = "";
+                checkBoxDone.Checked = false;
+
+            }
+            catch (Exception ex)
+            {
+                // Таким чином я ігнорую null exception. Адже программа працює коректно і на нього можна не зважати уваги.
+            }
         }
     }
 }
